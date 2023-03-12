@@ -3,6 +3,7 @@ package com.example.flexible_talk.activities_and_their_logics.fragments;
 import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,12 +13,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.example.flexible_talk.R;
 import com.example.flexible_talk.activities_and_their_logics.activities.MainActivity;
 import com.example.flexible_talk.activities_and_their_logics.activities.MainScreenActivity;
 import com.example.flexible_talk.auth_login.model.request.UserRegister;
 import com.example.flexible_talk.databinding.FragmentRegistrationBinding;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
 public class RegistrationFragment extends Fragment {
@@ -38,16 +42,9 @@ public class RegistrationFragment extends Fragment {
             }
             final UserRegister userRegister = new UserRegister(email, password, nickName);
 
-
         });
 
         binding.registrationButton.setOnClickListener(v -> {
-//            Intent intent = new Intent(getContext(), Main Activity.class);
-//            Bitmap b = binding.profilePicture;
-//            ByteArrayOutputStream bs = new ByteArrayOutputStream();
-//            b.compress(Bitmap.CompressFormat.PNG, 50, bs);
-//            intent.putExtra("pp", bs.toByteArray());
-//
             startActivity(new Intent(getContext(), MainActivity.class));
             requireActivity().finish();
         });
@@ -70,6 +67,8 @@ public class RegistrationFragment extends Fragment {
                     Uri image = data.getData();
                     if (image != null) {
                         binding.profilePicture.setImageURI(image);
+                        Intent intent = new Intent(getContext(), MainScreenActivity.class);
+                        intent.putExtra("pp", image);
                     }
                 }
 

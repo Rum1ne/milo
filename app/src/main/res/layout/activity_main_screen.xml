@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
-    tools:context=".activities_and_their_logics.activities.GreetingActivity">
+    tools:context=".activities_and_their_logics.activities.MainScreenActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -17,7 +17,16 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:src="@drawable/person" />
+    <Button
+        android:id="@+id/button_to_profile"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="5dp"
+        android:background="#00000000"
+        />
 
 
     <ImageView
@@ -28,6 +37,22 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:src="@drawable/notification" />
+
+    <Button
+        android:id="@+id/button_to_notification"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="#00000000"
+        />
+
+    <FrameLayout
+        android:id="@+id/side_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="100dp" />
 
 
     <FrameLayout

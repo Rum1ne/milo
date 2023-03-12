@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -34,6 +35,12 @@
             android:exported="true" />
         <activity
             android:name=".activities_and_their_logics.activities.MainScreenActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities_and_their_logics.activities.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities_and_their_logics.activities.NotificationActivity"
             android:exported="true" />
     </application>
 

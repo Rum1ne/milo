@@ -1,21 +1,23 @@
 package com.example.flexible_talk.activities_and_their_logics.activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.flexible_talk.R;
 import com.example.flexible_talk.activities_and_their_logics.fragments.ChatFragment;
 import com.example.flexible_talk.activities_and_their_logics.fragments.HomeFragment;
+import com.example.flexible_talk.activities_and_their_logics.fragments.RegistrationFragment;
 import com.example.flexible_talk.activities_and_their_logics.fragments.SearchFragment;
 import com.example.flexible_talk.databinding.ActivityMainScreenBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainScreenActivity extends AppCompatActivity {
 
@@ -25,6 +27,22 @@ public class MainScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
+
+
+        Button button_to_profile = findViewById(R.id.button_to_profile);
+        button_to_profile.setOnClickListener(v -> startActivity(new Intent(MainScreenActivity.this, ProfileActivity.class)));
+
+        Button button_to_nots = findViewById(R.id.button_to_notification);
+        button_to_nots.setOnClickListener(v -> startActivity(new Intent(MainScreenActivity.this, NotificationActivity.class)));
+
+
+//        Bitmap pp = (Bitmap) getIntent().getParcelableExtra("pp");
+//        ImageView imageView = findViewById(R.id.profile_picture);
+//        imageView.setImageBitmap(pp);
+        Uri pp = getIntent().getParcelableExtra("pp");
+        ImageView profile_picture = findViewById(R.id.profile_picture);
+        profile_picture.setImageURI(pp);
+
 
         loadFragment(new HomeFragment());
 
